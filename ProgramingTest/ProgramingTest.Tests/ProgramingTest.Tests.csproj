@@ -82,7 +82,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controllers\IPetOwnerList.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Controllers\HomeControllerTest.cs" />
   </ItemGroup>
@@ -93,6 +92,14 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\PetOwnerServiceclass\PetOwnerServiceclass.csproj">
+      <Project>{51DA476F-5C13-4CE3-867A-C54C7DF1A8A7}</Project>
+      <Name>PetOwnerServiceclass</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PetOwnersModel\PetOwnersModel.csproj">
+      <Project>{c7b16fec-3b3a-480a-a654-7fb754ddc4e5}</Project>
+      <Name>PetOwnersModel</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ProgramingTest\ProgramingTest.csproj">
       <Project>{00218CCF-9DF3-401A-A09F-4E0EAE2B5FB8}</Project>
       <Name>ProgramingTest</Name>

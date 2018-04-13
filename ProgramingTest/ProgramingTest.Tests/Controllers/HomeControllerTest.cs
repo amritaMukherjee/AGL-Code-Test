@@ -6,9 +6,12 @@ using System.Web.Mvc;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ProgramingTest;
 using ProgramingTest.Controllers;
+using PetOwnerServiceclass;
+using PetOwnersModel;
 
 namespace ProgramingTest.Tests.Controllers
 {
+    
     [TestClass]
     public class HomeControllerTest
     {
@@ -20,9 +23,10 @@ namespace ProgramingTest.Tests.Controllers
         {
             try
             {
-                
+
                 // Arrange
-                HomeController controller = new HomeController();
+               // IPetOwnerList petOwnerList=;
+                HomeController controller = new HomeController(petOwnerList);
 
                 // Act
                 ViewResult result = controller.Index() as ViewResult;
