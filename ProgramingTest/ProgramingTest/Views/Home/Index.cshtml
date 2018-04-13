@@ -1,0 +1,26 @@
+﻿@model PetOwnersModel.PetList
+@{
+    ViewBag.Title = "Pet List";
+}
+
+<h2>Pet List</h2>
+
+<b>Male</b>
+<ul>
+    @foreach (var Cat in Model.GenderPets.Where(c => c.OwnerGender.ToLower() == "male").Select(c => c.PetName).ToList())
+    {
+        <li>
+           <b>@Cat</b> 
+        </li>
+    }
+</ul>
+<b>Female</b>
+<ul>
+    @foreach (var Cat in Model.GenderPets.Where(c => c.OwnerGender.ToLower() == "female").Select(c => c.PetName).ToList())
+    {
+        <li>
+           <b>@Cat</b>
+        </li>
+    }
+</ul>
+

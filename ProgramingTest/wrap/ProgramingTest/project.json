@@ -1,0 +1,45 @@
+{
+  "version": "1.0.0-*",
+  "frameworks": {
+    "net45": {
+      "wrappedProject": "../../ProgramingTest/ProgramingTest.csproj",
+      "bin": {
+        "assembly": "../../ProgramingTest/obj/{configuration}/ProgramingTest.dll",
+        "pdb": "../../ProgramingTest/obj/{configuration}/ProgramingTest.pdb"
+      },
+      "dependencies": {
+        "Antlr": "3.4.1.9004",
+        "Autofac": "4.7.0",
+        "bootstrap": "3.0.0",
+        "EntityFramework": "6.1.3",
+        "jQuery": "1.10.2",
+        "jQuery.Validation": "1.11.1",
+        "Microsoft.AspNet.Identity.Core": "2.2.1",
+        "Microsoft.AspNet.Identity.EntityFramework": "2.2.1",
+        "Microsoft.AspNet.Identity.Owin": "2.2.1",
+        "Microsoft.AspNet.Mvc": "5.2.3",
+        "Microsoft.AspNet.Razor": "3.2.3",
+        "Microsoft.AspNet.Web.Optimization": "1.1.3",
+        "Microsoft.AspNet.WebPages": "3.2.3",
+        "Microsoft.CodeDom.Providers.DotNetCompilerPlatform": "1.0.0",
+        "Microsoft.jQuery.Unobtrusive.Validation": "3.2.3",
+        "Microsoft.Net.Compilers": "1.0.0",
+        "Microsoft.Owin": "3.0.1",
+        "Microsoft.Owin.Host.SystemWeb": "3.0.1",
+        "Microsoft.Owin.Security": "3.0.1",
+        "Microsoft.Owin.Security.Cookies": "3.0.1",
+        "Microsoft.Owin.Security.Facebook": "3.0.1",
+        "Microsoft.Owin.Security.Google": "3.0.1",
+        "Microsoft.Owin.Security.MicrosoftAccount": "3.0.1",
+        "Microsoft.Owin.Security.OAuth": "3.0.1",
+        "Microsoft.Owin.Security.Twitter": "3.0.1",
+        "Microsoft.Web.Infrastructure": "1.0.0.0",
+        "Modernizr": "2.6.2",
+        "Newtonsoft.Json": "6.0.4",
+        "Owin": "1.0",
+        "Respond": "1.2.0",
+        "WebGrease": "1.5.2"
+      }
+    }
+  }
+}
