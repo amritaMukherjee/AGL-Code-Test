@@ -33,9 +33,8 @@ namespace ProgramingTest.Tests.Controllers
             {
 
                 // Arrange
-                PetOwnerList petOwnerList=new PetOwnerList();
-                
-                var mock = new Mock<HomeControllerTest>();
+                                
+                var mock = new Mock<IPetOwnerList>();
                 
                 var People = "[{\"name\":\"Bob\",\"gender\":\"Male\",\"age\":23,\"pets\":[{\"name\":\"Garfield\",\"type\":\"Cat\"},{\"name\":\"Fido\",\"type\":\"Dog\"}]},{\"name\":\"Jennifer\",\"gender\":\"Female\",\"age\":18,\"pets\":[{\"name\":\"Garfield\",\"type\":\"Cat\"}]}]";
                 List<Owner> People_sort = JsonConvert.DeserializeObject<List<Owner>>(People);
@@ -55,30 +54,12 @@ namespace ProgramingTest.Tests.Controllers
                 logp.Add(ogp1);
                 
                 petlist.GenderPets = logp;
-                List<PetList> pt = new List<PetList>();
-                pt.Add(petlist);
+              
                 mock.Setup(foo => foo.sortjson(People_sort)).Returns((petlist));
-                List<PetList> pp = new List<PetList>();
-               
-                PetList resultList2 = petOwnerList.sortjson(People_sort);
-                pp.Add(resultList2);
+                PetList resultList2 = mock.Object.sortjson(People_sort);
+
+                CollectionAssert.AreEquivalent(resultList2.GenderPets, petlist.GenderPets);
                 
-                if(resultList2.GenderPets.Count()== petlist.GenderPets.Count())
-                {
-                    //test passed
-                    //
-                    for(int i=0;i< resultList2.GenderPets.Count(); i++)
-                    {
-                        if (resultList2.GenderPets[i].OwnerGender == petlist.GenderPets[i].OwnerGender) {
-                            if (resultList2.GenderPets[i].PetName == petlist.GenderPets[i].PetName) {
-                                if (resultList2.GenderPets[i].PetType == petlist.GenderPets[i].PetType) ; 
-                                    //Test passed
-                            }
-
-                        }
-
-                    }
-                }
             }
             catch (Exception ex) { }
         }
