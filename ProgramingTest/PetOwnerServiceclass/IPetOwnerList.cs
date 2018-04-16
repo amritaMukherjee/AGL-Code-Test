@@ -2,10 +2,12 @@
 {
     using PetOwnersModel;
     using System.Collections.Generic;
-    public  interface IPetOwnerList
+    public  interface IPetOwnerservice
     {
-        List<Owner> getlist();
-        PetList sortjson(List<Owner> finalList);
+        List<Owner> DownloadJsonlist();
+        PetList SortList(List<Owner> finalList);
+        
+
 
     }
 }

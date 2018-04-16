@@ -10,7 +10,7 @@ namespace ProgramingTest
         protected override void Load(ContainerBuilder builder)
         {
             //builder.RegisterType<HomeController>().UsingConstructor(typeof(ISampleService));
-            builder.RegisterType<PetOwnerList>().As<IPetOwnerList>().InstancePerHttpRequest();
+            builder.RegisterType<PetOwnerList>().As<IPetOwnerservice>().InstancePerHttpRequest();
             base.Load(builder);
         }
     }

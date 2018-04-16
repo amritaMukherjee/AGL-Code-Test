@@ -6,9 +6,9 @@
     using System.Collections.Generic;
     using System.Linq;
     using Newtonsoft.Json;
-    public class PetOwnerList: IPetOwnerList
+    public class PetOwnerList: IPetOwnerservice
     {
-        public List<Owner> getlist()
+        public List<Owner> DownloadJsonlist()
         {
 
             string URL = ConfigurationManager.AppSettings.Get("GetJsonURL");
@@ -18,7 +18,7 @@
             var finalList = JsonConvert.DeserializeObject<List<Owner>>(jsonData);
             return finalList;
         }
-        public  PetList sortjson(List<Owner> finalList)
+        public  PetList SortList(List<Owner> finalList)
         {
             PetList owner_list = new PetList();
             finalList.RemoveAll(c => c.Pets == null);
@@ -35,5 +35,6 @@
             owner_list.GenderPets = flatList.OrderBy(c => c.PetName).ToList();
             return owner_list;
         }
+
     }
 }

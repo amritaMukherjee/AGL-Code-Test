@@ -1,6 +1,4 @@
-﻿
-
-namespace ProgramingTest.Logger
+﻿namespace ProgramingTest.Logger
 {
     using System;
     using System.Collections.Generic;

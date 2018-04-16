@@ -1,15 +1,13 @@
 ﻿namespace ProgramingTest.Controllers
 {
-    
-    using System.Collections.Generic;
     using System.Web.Mvc;
     using System;
     using PetOwnersModel;
     using PetOwnerServiceclass;
     public class HomeController : Controller
     {
-        IPetOwnerList petOwnerList;
-        public HomeController(IPetOwnerList repo)
+        IPetOwnerservice petOwnerList;
+        public HomeController(IPetOwnerservice repo)
         {
             this.petOwnerList = repo;
         }
@@ -19,8 +17,8 @@
             PetList owner_list = new PetList();
             try
             {
-                var finalList = petOwnerList.getlist(); ;
-                owner_list = petOwnerList.sortjson(finalList);
+                var finalList = petOwnerList.DownloadJsonlist(); ;
+                owner_list = petOwnerList.SortList(finalList);
             }
             catch (Exception ex)
             {
@@ -30,7 +28,8 @@
 
             return View(owner_list);
         }
+        
 
-      
+
     }
 }
