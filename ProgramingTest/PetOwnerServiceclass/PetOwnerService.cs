@@ -6,7 +6,7 @@
     using System.Collections.Generic;
     using System.Linq;
     using Newtonsoft.Json;
-    public class PetOwnerList: IPetOwnerservice
+    public class PetOwnerService : IPetOwnerservice
     {
         public List<Owner> DownloadJsonlist()
         {

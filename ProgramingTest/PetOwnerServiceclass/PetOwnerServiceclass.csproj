@@ -46,8 +46,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IPetOwnerList.cs" />
-    <Compile Include="PetOwnerList.cs" />
+    <Compile Include="IPetOwnerService.cs" />
+    <Compile Include="PetOwnerService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
