@@ -1,16 +1,16 @@
-﻿using Autofac;
-using Autofac.Core;
-using Autofac.Integration.Mvc;
-using PetOwnerServiceclass;
-
-namespace ProgramingTest
+﻿namespace ProgramingTest
 {
+    using Autofac;
+    using Autofac.Integration.Mvc;
+    using PetOwnerServiceclass;
+    using LoggingService;
+    
     public class IoModule : Module
     {
         protected override void Load(ContainerBuilder builder)
         {
-            //builder.RegisterType<HomeController>().UsingConstructor(typeof(ISampleService));
             builder.RegisterType<PetOwnerService>().As<IPetOwnerservice>().InstancePerHttpRequest();
+            builder.RegisterType<Logger>().As<ILogger>().InstancePerHttpRequest();
             base.Load(builder);
         }
     }

@@ -1,6 +1,6 @@
 ﻿namespace ProgramingTest.Tests.Controllers
 {
-    using System;
+    
     using System.Collections.Generic;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
     using PetOwnerServiceclass;
@@ -9,6 +9,8 @@
     using Newtonsoft.Json;
     using ProgramingTest.Controllers;
     using System.Web.Mvc;
+    using LoggingService;
+    
     [TestClass]
     public class HomeControllerTest
     {             
@@ -17,71 +19,74 @@
         public void SortListTest()
         {
               
-                var petowner_service = new PetOwnerService();
-                var People = "[{\"name\":\"Bob\",\"gender\":\"Male\",\"age\":23,\"pets\":[{\"name\":\"Garfield\",\"type\":\"Cat\"},{\"name\":\"Fido\",\"type\":\"Dog\"}]},{\"name\":\"Jennifer\",\"gender\":\"Female\",\"age\":18,\"pets\":[{\"name\":\"Garfield\",\"type\":\"Cat\"}]}]";
-                List<Owner> People_sort = JsonConvert.DeserializeObject<List<Owner>>(People);
-                PetList petlist = new PetList();
-                List<OwnerGenderPet> logp = new List<OwnerGenderPet>();
-                OwnerGenderPet ogp = new OwnerGenderPet();
+            var petownerService = new PetOwnerService();
+            var people = JsonConvert.DeserializeObject<List<Owner>>
+             ("[{\"name\":\"Bob\",\"gender\":\"Male\",\"age\":23,\"pets\":[{\"name\":\"Tom\",\"type\":\"Cat\"},{\"name\":\"Fido\",\"type\":\"Dog\"}]},{\"name\":\"Jennifer\",\"gender\":\"Female\",\"age\":18,\"pets\":[{\"name\":\"Jerry\",\"type\":\"Cat\"}]}]");
 
-                ogp.OwnerGender = "Male";
-                ogp.PetName = "Garfield";
-                ogp.PetType = "Cat";
-                logp.Add(ogp);
-                OwnerGenderPet ogp1 = new OwnerGenderPet();
-                ogp1.OwnerGender = "Female";
-                ogp1.PetName = "Garfield";
-                ogp1.PetType = "Cat";
-                logp.Add(ogp1);
+
+            var expectedPetList = new PetList
+            {
+                GenderPets = new List<OwnerGenderPet>()
+            };
+            expectedPetList.GenderPets.Add(new OwnerGenderPet
+            {
+                OwnerGender = "Female",
+                PetName = "Jerry",
+                PetType = "Cat"
+            });
+            expectedPetList.GenderPets.Add(new OwnerGenderPet
+            {
+                OwnerGender = "Male",
+                PetName = "Tom",
+                PetType = "Cat"
+            });
+
+            var actualList = petownerService.SortList(people);
                 
-                petlist.GenderPets = logp;
-                             
-                PetList resultList2 = petowner_service.SortList(People_sort);
-                if(resultList2.GenderPets.Count==petlist.GenderPets.Count)
-                    for (int i = 0; i < resultList2.GenderPets.Count; i++)
-                    {
-                        if (resultList2.GenderPets[i].OwnerGender == petlist.GenderPets[i].OwnerGender)
-                        {
-                            if (resultList2.GenderPets[i].PetName == petlist.GenderPets[i].PetName)
-                            {
-                                if (resultList2.GenderPets[i].PetType == petlist.GenderPets[i].PetType) ;
-                                //Test passed
-                            }
+            Assert.AreEqual(expectedPetList.GenderPets.Count, actualList.GenderPets.Count);
+            Assert.IsTrue(expectedPetList.GenderPets[0].PetName.Equals(actualList.GenderPets[0].PetName));
+            Assert.IsTrue(expectedPetList.GenderPets[0].PetType.Equals(actualList.GenderPets[0].PetType));
+            Assert.IsTrue(expectedPetList.GenderPets[0].OwnerGender.Equals(actualList.GenderPets[0].OwnerGender));
 
-                        }
+            Assert.IsTrue(expectedPetList.GenderPets[1].PetName.Equals(actualList.GenderPets[1].PetName));
+            Assert.IsTrue(expectedPetList.GenderPets[1].PetType.Equals(actualList.GenderPets[1].PetType));
+            Assert.IsTrue(expectedPetList.GenderPets[1].OwnerGender.Equals(actualList.GenderPets[1].OwnerGender));
 
-                    }
-            Assert.AreEqual(resultList2.GenderPets.Count, petlist.GenderPets.Count);
 
-            }
+        }
         
 
         [TestMethod]
         public void IndexTest()
         {
              var mock = new Mock<IPetOwnerservice>();
-            var controller = new HomeController(mock.Object);
+            var mocklogger = new Mock<ILogger>();
+                      
+            var People = JsonConvert.DeserializeObject<List<Owner>>
+                ( "[{\"name\":\"Bob\",\"gender\":\"Male\",\"age\":23,\"pets\":[{\"name\":\"Tom\",\"type\":\"Cat\"},{\"name\":\"Fido\",\"type\":\"Dog\"}]},{\"name\":\"Jennifer\",\"gender\":\"Female\",\"age\":18,\"pets\":[{\"name\":\"Garfield\",\"type\":\"Cat\"}]}]");
+            
+            
+            var expectedPetList = new PetList
+            {
+                GenderPets = new List<OwnerGenderPet>()
+            };
+            expectedPetList.GenderPets.Add(new OwnerGenderPet
+            {
+                OwnerGender = "Male",
+                PetName = "Tom",
+                PetType = "Cat"
+            });
+            expectedPetList.GenderPets.Add(new OwnerGenderPet
+            {
+                OwnerGender = "Female",
+                PetName = "Garfield",
+                PetType = "Cat"
+            });
 
-            var People = "[{\"name\":\"Bob\",\"gender\":\"Male\",\"age\":23,\"pets\":[{\"name\":\"Garfield\",\"type\":\"Cat\"},{\"name\":\"Fido\",\"type\":\"Dog\"}]},{\"name\":\"Jennifer\",\"gender\":\"Female\",\"age\":18,\"pets\":[{\"name\":\"Garfield\",\"type\":\"Cat\"}]}]";
-            var People_sort = JsonConvert.DeserializeObject<List<Owner>>(People);
-            PetList petlist = new PetList();
-            List<OwnerGenderPet> logp = new List<OwnerGenderPet>();
-            OwnerGenderPet ogp = new OwnerGenderPet();
-
-            ogp.OwnerGender = "Male";
-            ogp.PetName = "Garfield";
-            ogp.PetType = "Cat";
-            logp.Add(ogp);
-            OwnerGenderPet ogp1 = new OwnerGenderPet();
-            ogp1.OwnerGender = "Female";
-            ogp1.PetName = "Garfield";
-            ogp1.PetType = "Cat";
-            logp.Add(ogp1);
-
-            petlist.GenderPets = logp;
-            mock.Setup(x => x.DownloadJsonlist()).Returns(People_sort);
-            mock.Setup(y => y.SortList(People_sort)).Returns(petlist);
-
+                       
+            mock.Setup(x => x.DownloadJsonlist()).Returns(People);
+            mock.Setup(y => y.SortList(People)).Returns(expectedPetList);
+            var controller = new HomeController(mock.Object, mocklogger.Object);
             var actual = controller.Index() as ViewResult;
             var model = actual.ViewData.Model as PetList;
 

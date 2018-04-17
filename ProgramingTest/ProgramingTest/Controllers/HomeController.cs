@@ -4,29 +4,32 @@
     using System;
     using PetOwnersModel;
     using PetOwnerServiceclass;
+    using LoggingService;
     public class HomeController : Controller
     {
         IPetOwnerservice petOwnerList;
-        public HomeController(IPetOwnerservice repo)
+        ILogger logingservice;
+        public HomeController(IPetOwnerservice repo,ILogger logs)
         {
             this.petOwnerList = repo;
+            this.logingservice = logs;
         }
 
         public ActionResult Index()
         {
-            PetList owner_list = new PetList();
+            var owner_list = new PetList();
             try
             {
                 var finalList = petOwnerList.DownloadJsonlist(); ;
                 owner_list = petOwnerList.SortList(finalList);
+               
             }
             catch (Exception ex)
             {
-                Logger.Logger logerror = new Logger.Logger();
-                logerror.ErrorLogger(ex);
+                 logingservice.ErrorLogger(ex);
             }
-
             return View(owner_list);
+
         }
         
 

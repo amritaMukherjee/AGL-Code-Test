@@ -1,11 +1,11 @@
-﻿namespace ProgramingTest.Logger
+﻿namespace ProgramingTest.LoggingService
 {
     using System;
     using System.Collections.Generic;
     using System.Configuration;
     using System.Diagnostics;
     using System.Linq;
-    public class Logger
+    public class Logger:ILogger
     {
         public void ErrorLogger(Exception ex)
         {

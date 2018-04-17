@@ -11,16 +11,16 @@
         public List<Owner> DownloadJsonlist()
         {
 
-            string URL = ConfigurationManager.AppSettings.Get("GetJsonURL");
-            var client = new WebClient();
+            string url = ConfigurationManager.AppSettings.Get("GetJsonURL");
             var jsonData = string.Empty;
-            jsonData = client.DownloadString(URL);
+            var client = new WebClient();
+            jsonData = client.DownloadString(url);
             var finalList = JsonConvert.DeserializeObject<List<Owner>>(jsonData);
             return finalList;
         }
         public  PetList SortList(List<Owner> finalList)
         {
-            PetList owner_list = new PetList();
+            PetList PetList = new PetList();
             finalList.RemoveAll(c => c.Pets == null);
 
             var flatList = finalList.SelectMany(b => b.Pets.Select(p => new OwnerGenderPet
@@ -32,8 +32,8 @@
 
                 )).ToList();
             flatList.RemoveAll(c => c.PetType.ToLower() != "cat");
-            owner_list.GenderPets = flatList.OrderBy(c => c.PetName).ToList();
-            return owner_list;
+            PetList.GenderPets = flatList.OrderBy(c => c.PetName).ToList();
+            return PetList;
         }
 
     }
