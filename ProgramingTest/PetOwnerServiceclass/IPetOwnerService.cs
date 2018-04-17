@@ -1,13 +1,10 @@
-﻿namespace PetOwnerServiceclass
+﻿using PetOwnersModel;
+using System.Collections.Generic;
+namespace PetOwnerServiceclass
 {
-    using PetOwnersModel;
-    using System.Collections.Generic;
-    public  interface IPetOwnerservice
+    public interface IPetOwnerservice
     {
         List<Owner> DownloadJsonlist();
         PetList SortList(List<Owner> finalList);
-        
-
-
     }
 }

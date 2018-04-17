@@ -1,16 +1,15 @@
-﻿namespace ProgramingTest.Tests.Controllers
+﻿using System.Collections.Generic;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using PetOwnerServiceclass;
+using PetOwnersModel;
+using Moq;
+using Newtonsoft.Json;
+using ProgramingTest.Controllers;
+using System.Web.Mvc;
+using ProgramingTest.LoggingService;
+namespace ProgramingTest.Tests.Controllers
 {
-    
-    using System.Collections.Generic;
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
-    using PetOwnerServiceclass;
-    using PetOwnersModel;
-    using Moq;
-    using Newtonsoft.Json;
-    using ProgramingTest.Controllers;
-    using System.Web.Mvc;
-    using LoggingService;
-    
+       
     [TestClass]
     public class HomeControllerTest
     {             
@@ -82,16 +81,13 @@
                 PetName = "Tom",
                 PetType = "Cat"
             });
-            
-
-                       
+                                              
             mock.Setup(x => x.DownloadJsonlist()).Returns(People);
             mock.Setup(y => y.SortList(People)).Returns(expectedPetList);
             var controller = new HomeController(mock.Object, mocklogger.Object);
             var actual = controller.Index() as ViewResult;
             var model = actual.ViewData.Model as PetList;
             Assert.AreEqual(2, model.GenderPets.Count);
-
 
         }
 

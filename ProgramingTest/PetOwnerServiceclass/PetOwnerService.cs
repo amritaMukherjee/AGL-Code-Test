@@ -1,16 +1,15 @@
-﻿namespace PetOwnerServiceclass
+﻿using System.Configuration;
+using System.Net;
+using PetOwnersModel;
+using System.Collections.Generic;
+using System.Linq;
+using Newtonsoft.Json;
+namespace PetOwnerServiceclass
 {
-    using System.Configuration;
-    using System.Net;
-    using PetOwnersModel;
-    using System.Collections.Generic;
-    using System.Linq;
-    using Newtonsoft.Json;
     public class PetOwnerService : IPetOwnerservice
     {
         public List<Owner> DownloadJsonlist()
         {
-
             string url = ConfigurationManager.AppSettings.Get("GetJsonURL");
             var jsonData = string.Empty;
             var client = new WebClient();

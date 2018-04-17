@@ -1,7 +1,7 @@
-﻿namespace PetOwnersModel
+﻿using System.Collections.Generic;
+namespace PetOwnersModel
 {
-    using System.Collections.Generic;
-    
+     
     public class PetList
     {
         public List<OwnerGenderPet> GenderPets { get; set; }
