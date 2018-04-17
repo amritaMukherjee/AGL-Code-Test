@@ -72,16 +72,17 @@
             };
             expectedPetList.GenderPets.Add(new OwnerGenderPet
             {
-                OwnerGender = "Male",
-                PetName = "Tom",
-                PetType = "Cat"
-            });
-            expectedPetList.GenderPets.Add(new OwnerGenderPet
-            {
                 OwnerGender = "Female",
                 PetName = "Garfield",
                 PetType = "Cat"
             });
+            expectedPetList.GenderPets.Add(new OwnerGenderPet
+            {
+                OwnerGender = "Male",
+                PetName = "Tom",
+                PetType = "Cat"
+            });
+            
 
                        
             mock.Setup(x => x.DownloadJsonlist()).Returns(People);
@@ -89,8 +90,8 @@
             var controller = new HomeController(mock.Object, mocklogger.Object);
             var actual = controller.Index() as ViewResult;
             var model = actual.ViewData.Model as PetList;
-
             Assert.AreEqual(2, model.GenderPets.Count);
+
 
         }
 

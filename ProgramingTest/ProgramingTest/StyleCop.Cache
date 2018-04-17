@@ -1,5 +1,8 @@
 <stylecopresultscache>
   <version>12</version>
+  <project key="700347795">
+    <configuration>DEBUG;TRACE</configuration>
+  </project>
   <sourcecode name="BundleConfig.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2018/04/17 19:30:45.029</styleCop>
@@ -311,7 +314,7 @@
     <timestamps>
       <styleCop>2018/04/17 19:30:45.029</styleCop>
       <settingsFile>2018/04/17 19:30:44.969</settingsFile>
-      <sourceFile>2018/04/17 19:31:08.304</sourceFile>
+      <sourceFile>2018/04/17 20:27:49.351</sourceFile>
       <parser>2018/04/17 19:30:45.029</parser>
       <StyleCop.CSharp.DocumentationRules>2018/04/17 19:30:45.029</StyleCop.CSharp.DocumentationRules>
       <StyleCop.CSharp.DocumentationRules.FilesHashCode>-1837500185</StyleCop.CSharp.DocumentationRules.FilesHashCode>
@@ -443,8 +446,8 @@
       <violation namespace="StyleCop.CSharp.ReadabilityRules" rule="PrefixCallsCorrectly" ruleCheckId="SA1126">
         <context>The call to petOwnerList must begin with the 'this.', 'base.', 'object.' or 'HomeController.' or 'Controller.' prefix to indicate the intended method call. </context>
         <line>23</line>
-        <index>630</index>
-        <endIndex>641</endIndex>
+        <index>626</index>
+        <endIndex>637</endIndex>
         <startLine>23</startLine>
         <startColumn>33</startColumn>
         <endLine>23</endLine>
@@ -454,8 +457,8 @@
       <violation namespace="StyleCop.CSharp.ReadabilityRules" rule="PrefixCallsCorrectly" ruleCheckId="SA1126">
         <context>The call to petOwnerList must begin with the 'this.', 'base.', 'object.' or 'HomeController.' or 'Controller.' prefix to indicate the intended method call. </context>
         <line>24</line>
-        <index>695</index>
-        <endIndex>706</endIndex>
+        <index>691</index>
+        <endIndex>702</endIndex>
         <startLine>24</startLine>
         <startColumn>30</startColumn>
         <endLine>24</endLine>
@@ -465,8 +468,8 @@
       <violation namespace="StyleCop.CSharp.ReadabilityRules" rule="PrefixCallsCorrectly" ruleCheckId="SA1126">
         <context>The call to logingservice must begin with the 'this.', 'base.', 'object.' or 'HomeController.' or 'Controller.' prefix to indicate the intended method call. </context>
         <line>29</line>
-        <index>828</index>
-        <endIndex>840</endIndex>
+        <index>824</index>
+        <endIndex>836</endIndex>
         <startLine>29</startLine>
         <startColumn>18</startColumn>
         <endLine>29</endLine>
@@ -476,8 +479,8 @@
       <violation namespace="StyleCop.CSharp.ReadabilityRules" rule="PrefixCallsCorrectly" ruleCheckId="SA1126">
         <context>The call to View must begin with the 'this.', 'base.', 'object.' or 'HomeController.' or 'Controller.' prefix to indicate the intended method call. </context>
         <line>31</line>
-        <index>894</index>
-        <endIndex>897</endIndex>
+        <index>890</index>
+        <endIndex>893</endIndex>
         <startLine>31</startLine>
         <startColumn>20</startColumn>
         <endLine>31</endLine>
@@ -487,8 +490,8 @@
       <violation namespace="StyleCop.CSharp.SpacingRules" rule="SemicolonsMustBeSpacedCorrectly" ruleCheckId="SA1002">
         <context>Invalid spacing around the semicolon.</context>
         <line>23</line>
-        <index>663</index>
-        <endIndex>663</endIndex>
+        <index>659</index>
+        <endIndex>659</endIndex>
         <startLine>23</startLine>
         <startColumn>66</startColumn>
         <endLine>23</endLine>
@@ -1035,7 +1038,4 @@
       </violation>
     </violations>
   </sourcecode>
-  <project key="700347795">
-    <configuration>DEBUG;TRACE</configuration>
-  </project>
 </stylecopresultscache>

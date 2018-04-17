@@ -92,7 +92,7 @@
     <timestamps>
       <styleCop>2018/04/17 19:30:45.029</styleCop>
       <settingsFile>2018/04/17 19:30:44.969</settingsFile>
-      <sourceFile>2018/04/16 22:41:38.243</sourceFile>
+      <sourceFile>2018/04/17 19:52:26.304</sourceFile>
       <parser>2018/04/17 19:30:45.029</parser>
       <StyleCop.CSharp.DocumentationRules>2018/04/17 19:30:45.029</StyleCop.CSharp.DocumentationRules>
       <StyleCop.CSharp.DocumentationRules.FilesHashCode>-1837500185</StyleCop.CSharp.DocumentationRules.FilesHashCode>
@@ -160,11 +160,6 @@
         <line>20</line>
         <warning>False</warning>
       </violation>
-      <violation namespace="StyleCop.CSharp.NamingRules" rule="FieldNamesMustBeginWithLowerCaseLetter" ruleCheckId="SA1306">
-        <context>Variable names and private field names must start with a lower-case letter: URL.</context>
-        <line>14</line>
-        <warning>False</warning>
-      </violation>
       <violation namespace="StyleCop.CSharp.DocumentationRules" rule="ElementsMustBeDocumented" ruleCheckId="SA1600">
         <context>The method must have a documentation header.</context>
         <line>21</line>
@@ -173,6 +168,11 @@
       <violation namespace="StyleCop.CSharp.LayoutRules" rule="ElementsMustBeSeparatedByBlankLine" ruleCheckId="SA1516">
         <context>Adjacent elements must be separated by a blank line.</context>
         <line>21</line>
+        <warning>False</warning>
+      </violation>
+      <violation namespace="StyleCop.CSharp.NamingRules" rule="FieldNamesMustBeginWithLowerCaseLetter" ruleCheckId="SA1306">
+        <context>Variable names and private field names must start with a lower-case letter: PetList.</context>
+        <line>23</line>
         <warning>False</warning>
       </violation>
       <violation namespace="StyleCop.CSharp.ReadabilityRules" rule="ClosingParenthesisMustBeOnLineOfLastParameter" ruleCheckId="SA1111">
@@ -194,8 +194,8 @@
       <violation namespace="StyleCop.CSharp.SpacingRules" rule="ClosingParenthesisMustBeSpacedCorrectly" ruleCheckId="SA1009">
         <context>Invalid spacing around the closing parenthesis.</context>
         <line>33</line>
-        <index>1077</index>
-        <endIndex>1092</endIndex>
+        <index>1074</index>
+        <endIndex>1089</endIndex>
         <startLine>33</startLine>
         <startColumn>1</startColumn>
         <endLine>33</endLine>
